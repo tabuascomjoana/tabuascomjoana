@@ -164,3 +164,13 @@ if(offer){
   window.addEventListener('load', schedule);
   window.addEventListener('resize', schedule);
 })();
+
+// === Forçar todos os botões (links com .btn) a irem para a Hotmart ===
+const PAY_URL = "https://pay.hotmart.com/K102026190O";
+
+// Atualiza o href de todos os CTAs estilizados como botão
+document.querySelectorAll('a.btn').forEach(a => {
+  a.setAttribute('href', PAY_URL);
+  // se quiser abrir em nova aba, descomente a linha abaixo:
+  // a.setAttribute('target', '_blank'); a.setAttribute('rel','noopener');
+});
