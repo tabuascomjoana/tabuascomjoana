@@ -870,3 +870,28 @@ a:focus-visible, button:focus-visible{
   /* remove qualquer “placeholder” usado antes */
   .site-header .nav::after{ content: none !important; }
 }
+
+/* ===== MOBILE: esconder 100% o menu fechado (sem pontinha) ===== */
+@media (max-width: 880px){
+  /* posiciona logo abaixo do header + notch */
+  .nav-links{
+    inset: calc(64px + env(safe-area-inset-top, 0px)) 0 auto 0;
+    transform: translateY(calc(-100% - 16px)) !important; /* sobe 100% + folga */
+    opacity: 0;
+    pointer-events: none;
+    border-bottom-color: transparent; /* não mostra a linha enquanto fechado */
+    will-change: transform;
+  }
+  @supports (padding-top: constant(safe-area-inset-top)){
+    .nav-links{
+      inset: calc(64px + constant(safe-area-inset-top)) 0 auto 0;
+    }
+  }
+  .nav-links.open{
+    transform: translateY(0) !important;
+    opacity: 1;
+    pointer-events: auto;
+    border-bottom-color: rgba(255,255,255,.08);
+    z-index: 60;
+  }
+}
