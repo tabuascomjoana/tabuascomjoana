@@ -794,3 +794,52 @@ a:focus-visible, button:focus-visible{
   .nav-links a:not(.btn){ color:#f5f5f5; }
   .nav-links a:not(.btn):hover{ color:var(--brand); }
 }
+
+/* ===== Header mobile (≤880px): hambúrguer à ESQUERDA e nome AO LADO ===== */
+@media (max-width: 880px){
+  /* Cor única e segura (sem translucidez) */
+  .site-header{
+    background: var(--navy) !important;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 6px);
+    padding-bottom: 8px;
+  }
+  @supports (padding-top: constant(safe-area-inset-top)) {
+    .site-header{
+      padding-top: calc(constant(safe-area-inset-top) + 6px);
+    }
+  }
+
+  /* 3 colunas: [hamburger 44px] [marca auto] [espaço flex 1fr] */
+  .site-header .nav{
+    display: grid;
+    grid-template-columns: 44px auto 1fr;  /* <<< muda de 44px 1fr 44px para colocar a marca AO LADO do hambúrguer */
+    align-items: center;
+    justify-items: start;                  /* não centraliza as células */
+    min-height: 64px;
+  }
+
+  /* hambúrguer à esquerda, mesmo tamanho (não cresce) */
+  .site-header .nav-toggle{
+    grid-column: 1;
+    justify-self: start;
+    width: 44px; height: 44px;
+    padding: 10px;
+  }
+  .site-header .nav-toggle span{ width: 24px; } /* mantém o ícone pequeno */
+
+  /* remove o placeholder que centralizava a marca antes */
+  .site-header .nav::after{ content: none !important; }
+
+  /* marca imediatamente AO LADO do hambúrguer (coluna 2) */
+  .site-header .brand{
+    grid-column: 2;
+    justify-self: start;
+    align-self: center;
+    margin: 0;                             /* zera qualquer margin-top anterior */
+  }
+  .site-header .brand-mark{
+    color: #fff !important;
+    font-size: clamp(1.1rem, 1rem + 1vw, 1.6rem);
+    line-height: 1.1;
+  }
+}
