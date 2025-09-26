@@ -174,3 +174,13 @@ document.querySelectorAll('a.btn').forEach(a => {
   // se quiser abrir em nova aba, descomente a linha abaixo:
   // a.setAttribute('target', '_blank'); a.setAttribute('rel','noopener');
 });
+
+// ===== Viewport real no mobile: define --vh para usar no CSS =====
+(function(){
+  const setVH = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+  setVH();
+  window.addEventListener('resize', setVH);
+})();
