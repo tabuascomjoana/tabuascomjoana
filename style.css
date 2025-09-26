@@ -895,3 +895,8 @@ a:focus-visible, button:focus-visible{
     z-index: 60;
   }
 }
+
+/* Mobile: não quebrar "R$ 3.000,00" em duas linhas */
+@media (max-width: 880px){
+  .no-wrap-mobile{ white-space: nowrap; }
+}
