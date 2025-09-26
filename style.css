@@ -735,3 +735,47 @@ a:focus-visible, button:focus-visible{
     line-height: 1.1;
   }
 }
+
+/* Header mobile: hambúrguer à esquerda e nome CENTRAL */
+@media (max-width: 880px){
+  /* header sólido (evita faixas de outras cores) */
+  .site-header{ background: var(--navy) !important; }
+
+  /* 3 colunas: [hamburger 44px] [centro 1fr] [placeholder 44px] */
+  .site-header .nav{
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    min-height: 64px;
+  }
+
+  /* hambúrguer: mesmo tamanho, só posicionamento à esquerda */
+  .site-header .nav-toggle{
+    grid-column: 1;
+    justify-self: start;
+    width: 44px; height: 44px;       /* área de toque */
+    padding: 10px;
+  }
+  .site-header .nav-toggle span{ width: 24px; } /* NÃO muda o ícone */
+
+  /* placeholder à direita para manter o título exatamente no centro */
+  .site-header .nav::after{
+    content: "";
+    grid-column: 3;
+    inline-size: 44px;
+    block-size: 1px; /* só reserva espaço */
+  }
+
+  /* nome central, sem “subir” */
+  .site-header .brand{
+    grid-column: 2;
+    justify-self: center;
+    align-self: center;
+    margin-top: 0;                 /* zera qualquer ajuste anterior */
+  }
+  .site-header .brand-mark{
+    font-size: clamp(1.1rem, 1rem + 1vw, 1.6rem);
+    line-height: 1.1;
+    color: #fff !important;        /* branco no topo */
+  }
+}
