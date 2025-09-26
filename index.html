@@ -1,0 +1,353 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Tábuas com Joana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Aprenda a vender tábuas de frios lucrativas da cozinha da sua casa. Manual prático + planilha de precificação + scripts de vendas e roteiro de fotos.">
+  <meta name="theme-color" content="#F2B872">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <meta property="og:title" content="Tábuas Lucrativas — com a Chef Joana Neves" />
+  <meta property="og:description" content="Passo a passo para planejar, montar, precificar e vender tábuas lucrativas — mesmo começando do zero." />
+  <meta property="og:image" content="images/og-tabuas.jpg" />
+  <meta property="og:type" content="website" />
+  <script defer src="script.js"></script>
+
+  <!-- Dados estruturados (Product) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Manual Prático Tábuas Lucrativas",
+    "description":"E-book + Planilha + Bônus (scripts, checklists, roteiro de fotos) para vender tábuas de frios com margem.",
+    "brand":{"@type":"Brand","name":"Affinato"},
+    "author":{"@type":"Person","name":"Chef Joana Neves"},
+    "image":["images/ebook-mockup.jpg","images/galeria-tabuas-1.jpg","images/galeria-tabuas-2.jpg"],
+    "offers":{"@type":"Offer","priceCurrency":"BRL","price":"47.00","availability":"https://schema.org/InStock","url":"#oferta"}
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header" data-sticky>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Página inicial">
+        <span class="brand-mark">Tabuas com Joana</span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" aria-label="principal">
+        <a href="#aprender">Conteúdo</a>
+        <a href="#semana">Comece já</a>
+        <a href="#sobre">Quem é Joana?</a>
+        <a href="#oferta" class="btn btn-primary btn-sm">Quero começar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="display reveal">
+          Fature <span class="highlight">R$ 3.000,00</span> a mais como renda extra da cozinha da sua casa.<br>
+        </h1>
+        <p class="lead reveal delay-1">
+          Aprenda o passo a passo que a Chef Joana Neves, fundadora da Affinato, usa para planejar, montar, precificar e vender
+          <strong>tábuas de frios de mais de R$ 1.300,00</strong> cada, mesmo que você esteja começando do zero.
+        </p>
+        <div class="cta-row reveal delay-2">
+          <a href="#oferta" class="btn btn-primary btn-lg">Quero começar agora</a>
+          <div class="cta-micro">download imediato • acesso vitalício</div>
+        </div>
+        <ul class="trust-badges reveal delay-3" aria-label="Garantias e benefícios">
+          <li>✔ Garantia de 7 dias</li>
+          <li>✔ Atualizações incluídas</li>
+          <li>✔ Grupo no WhatsApp com alunas</li>
+        </ul>
+      </div>
+
+      <div class="hero-image reveal">
+        <!-- Removidos width/height fixos para o CSS controlar o tamanho -->
+        <img src="imagens/foto_joana_neves.jpg" alt="Tábua de frios autoral com composição elegante e apetitosa" loading="eager">
+        <div class="floating-badge">
+          <div class="badge-number" data-counter="100">0</div>
+          <div class="badge-label"><strong>pedidos entregues</strong></div>
+        </div>
+      </div>
+    </div>
+        </div>
+  </section>
+  
+  <!-- O que você vai aprender -->
+  <section id="aprender" class="section" aria-labelledby="learn-title">
+    <div class="container">
+      <header class="section-head">
+        <h2 id="learn-title" class="h1 reveal">O que você vai aprender</h2>
+        <p class="section-sub reveal delay-1">Tudo para vender com segurança — sem adivinhação.</p>
+      </header>
+
+      <div class="cards-grid">
+        <article class="card reveal">
+          <h3>Segurança para precificar</h3>
+          <p>Fórmula de custo, margem e preço final. <strong>Planilha exclusiva</strong> para precificar corretamente e lucrar desde a 1ª venda.</p>
+        </article>
+        <article class="card reveal delay-1">
+          <h3>Clareza do processo</h3>
+          <p>Passo a passo do <strong>planejamento à entrega</strong> do briefing ao pós-venda.</p>
+        </article>
+        <article class="card reveal delay-2">
+          <h3>Padronização profissional</h3>
+          <p>Cortes, dobras, <strong>quantidades e apresentação</strong> com alto padrão. </p>
+        </article>
+        <article class="card reveal delay-3">
+          <h3>Tipos de eventos & escala</h3>
+          <p>Como iniciar em eventos intimistas e <strong>escalar as vendas</strong> com combos e kits.</p>
+        </article>
+        <article class="card reveal delay-4">
+          <h3>Fotos que vendem</h3>
+          <p>Roteiro prático para <strong>fotografar e postar</strong> com foco em conversão.</p>
+        </article>
+        <article class="card reveal delay-5">
+          <h3>Atendimento que fecha</h3>
+          <p><strong>Scripts prontos</strong> para WhatsApp e Instagram que transformam visitas em pedidos.</p>
+        </article>
+      </div>
+
+      <div class="center reveal delay-6">
+        <a href="#oferta" class="btn btn-outline">Quero começar agora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que muda nesta semana -->
+  <section id="semana" class="section section-accent" aria-labelledby="week-title">
+    <div class="container grid-2">
+      <div>
+        <h2 id="week-title" class="h1 reveal">Você já pode começar a faturar ainda nesta semana</h2>
+        <p class="lead reveal delay-1">
+          Por apenas <strong>R$ 57,00</strong> você aprenderá técnicas para vender tábuas com <strong>valores médios de R$ 200 a R$ 1.500</strong> cada.<br>
+          Com a sua <strong>primeira venda</strong> você já recupera o valor investido.
+        </p>
+        <div class="reveal delay-2">
+          <a href="#oferta" class="btn btn-primary btn-lg">Garantir acesso por R$ 57</a>
+          <div class="cta-micro">download imediato • acesso vitalício</div>
+        </div>
+      </div>
+      <div class="photo-frame reveal">
+        <img src="imagens/comece_agora.jpg" alt="Close da montagem: cortes uniformes, mise en place organizada" loading="lazy" width="800" height="640">
+      </div>
+    </div>
+  </section>
+
+  <!-- Conteúdo do e-book -->
+  <section id="conteudo" class="section" aria-labelledby="ebook-title">
+    <div class="container">
+      <header class="section-head narrow">
+        <h2 id="ebook-title" class="h1 reveal">Você vai aprender a</h2>
+      </header>
+
+      <div class="list-columns">
+        <ul class="icon-list reveal">
+          <li>Calcular preços com segurança e definir margens de lucro saudáveis.</li>
+          <li>Padronizar quantidades e cortes para experiência perfeita do cliente.</li>
+          <li>Montagem com apresentação profissional de alto padrão.</li>
+        </ul>
+        <ul class="icon-list reveal delay-1">
+          <li>Criar fotos e legendas que geram pedidos.</li>
+          <li>Organizar logística: tempo, embalagem, transporte e conservação.</li>
+          <li>Fechar vendas com scripts prontos e pós-venda que fideliza.</li>
+        </ul>
+      </div>
+
+      <div class="bonus reveal delay-2">
+        <h3>Bônus incluídos</h3>
+        <ul>
+          <li>Checklist de montagem e entrega </li>
+          <li>Tabela de porções por pessoa </li>
+          <li>Scripts prontos de atendimento para vender no WhatsApp e Instagram</li>
+          <li>Roteiro de fotos com celular</li>
+          <li>Acesso ao grupo de WhatsApp com alunas</li>
+        </ul>
+        <a href="#oferta" class="btn btn-outline">Quero começar agora + bônus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem é / não é -->
+  <section id="publico" class="section section-contrast" aria-labelledby="fit-title">
+    <div class="container grid-2">
+      <div>
+        <h2 id="fit-title" class="h1 reveal">O Tábuas Lucrativas é para você que</h2>
+        <ul class="fit-list reveal">
+          <li>Quer começar uma nova fonte de renda com liberdade</li>
+          <li>Sonha em trabalhar de casa</li>
+          <li>Ama cozinhar e se interessa por tábuas de frios</li>
+          <li>Quer faturar <strong>R$ 3.000</strong> a mais por mês</li>
+          <li>Quer começar com um investimento baixo</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="h1 reveal delay-1">Não é para você que</h2>
+        <ul class="not-list reveal delay-1">
+          <li>Não quer uma renda extra de R$ 3.000/mês</li>
+          <li>Não quer trabalhar no conforto da sua casa</li>
+          <li>Não gosta de vender e não quer aprender</li>
+          <li>Prefere continuar esperando a sorte bater na porta</li>
+          <li>Não quer trabalhar só aos finais de semana com liberdade</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que aprender com a Joana (sem foto grande) -->
+  <section id="sobre" class="section" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <h2 id="about-title" class="h1 reveal">Quem é a Chef Joana Neves?</h2>
+        <p class="reveal delay-1">
+          Eu já estive exatamente onde você está. Comecei a vender tábuas de frios na cozinha do meu apartamento, sem vitrine, sem loja, sem dinheiro sobrando, só com o sonho de ganhar uma renda extra e quem sabe transformar isso em um negócio lucrativo.
+        </p>
+        <p class="reveal delay-2">
+          Hoje sou fundadora da marca curitibana <strong>Affinato</strong>, especializada em tábuas e mesas de antepastos autorais.<br> <strong>Já entreguei mais de 100 pedidos</strong>, entre eventos sociais e corporativos de alto padrão. Tudo com processos definidos e validados: briefing, pré-preparo, montagem, transporte, entrega e fidelização.
+        </p>
+        <p class="reveal delay-3">
+          Montei uma operação sólida, profissional e lucrativa. Saí da cozinha de casa para uma cozinha industrial. E agora, quero te mostrar que isso também é possível pra você.
+        </p>
+
+        <div class="gallery reveal delay-4">
+          <img src="imagens/galeria_1.jpg" alt="Tábua autoral com frutas, queijos e charcutaria" loading="lazy" width="480" height="360">
+          <img src="imagens/galeria_2.jpg" alt="Close dos cortes e dobras padronizados" loading="lazy" width="480" height="360">
+          <img src="imagens/galeria_3.png" alt="Apresentação profissional pronta para entrega" loading="lazy" width="480" height="360">
+        </div>
+        <div class="center reveal delay-5">
+          <a href="#oferta" class="btn btn-primary">Quero começar hoje</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Oferta & Garantia -->
+  <section id="oferta" class="section section-offer" aria-labelledby="offer-title">
+    <div class="container">
+      <header class="section-head narrow">
+        <h2 id="offer-title" class="h1 reveal">Oferta &amp; Garantia</h2>
+        <p class="section-sub reveal delay-1">Plano Manual Prático + Planilha + Bônus</p>
+      </header>
+
+      <div class="offer-grid">
+        <div class="offer-card reveal">
+          <ul class="offer-list">
+            <li>✔ Manual Prático completo</li>
+            <li>✔ Planilha prática e intuitiva</li>
+            <li>✔ Tabela de porções e quantidades</li>
+            <li>✔ Scripts de venda</li>
+            <li>✔ Roteiro de fotos</li>
+          </ul>
+          <div class="price">
+            <div class="price-now"><span>R$</span>57<span>,00</span></div>
+            <div class="price-note">à vista (Pix/Cartão) ou <em>8 x</em> de <em>R$8,29</em></div>
+          </div>
+          <a href="#checkout" class="btn btn-primary btn-lg btn-pulse">Quero começar agora</a>
+          <div class="guarantee">
+            <img src="images/selo-garantia.png" alt="" aria-hidden="true" />
+            <div>
+              <strong>Garantia de 7 dias</strong><br>
+              Se não for pra você, devolvemos 100%.
+            </div>
+          </div>
+          <div class="section-foot center">
+  <h2 class="h1 reveal">
+    Você está pronta<br>para se tornar <br><span class="brand-accent">referência<br>na sua cidade?</span>
+  </h2>
+</div>
+        </div>
+
+        <div class="mockup reveal delay-1">
+          <img src="imagens/capa_guia.png" alt="Mockup do e-book e planilha: Tábuas Lucrativas" loading="lazy" width="900" height="700">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title" class="h1 reveal">Perguntas frequentes</h2>
+
+      <div class="faq">
+        <details class="reveal" open>
+          <summary>Quanto preciso investir para começar?</summary>
+          <p>Precisa apenas de uma tábua, uma faca, uma geladeira e potes para armazenar os frios. Você vai trabalhar com o dinheiro do cliente, sob demanda.</p>
+        </details>
+        <details class="reveal delay-1">
+          <summary>Funciona para cidades pequenas?</summary>
+          <p>Sim. O método ensina precificação por pessoa e posicionamento para sua realidade. A planilha é editável: você preenche com os valores da sua cidade e o cálculo sai automático.</p>
+        </details>
+        <details class="reveal delay-2">
+          <summary>Eu não sei vender, vai funcionar pra mim?</summary>
+          <p>Sim. O Manual traz scripts de vendas e atendimento e um roteiro de fotos para conseguir os primeiros pedidos mesmo sem seguidores.</p>
+        </details>
+        <details class="reveal delay-3">
+          <summary>Consigo adaptar para pedidos corporativos?</summary>
+          <p>Com certeza. Você aprenderá a atender eventos para até 20 pessoas, em sociais e corporativos.</p>
+        </details>
+        <details class="reveal delay-4">
+          <summary>Por que começar agora?</summary>
+          <p>Quanto antes você começar, mais cedo você começa a lucrar. Decisão gera ação e ação gera pedido.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chamada final -->
+  <section id="final" class="section section-call" aria-labelledby="final-title">
+    <div class="container center">
+      <h2 id="final-title" class="display reveal">Seu primeiro pedido pode sair esta semana</h2>
+      <a href="#oferta" class="btn btn-primary btn-xl reveal delay-1">Quero vender minhas tábuas</a>
+      <div class="cta-micro reveal delay-2">✔ Download imediato • ✔ Grupo de WhatsApp com alunas • ✔ Garantia de 7 dias</div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand-col">
+    <div class="brand brand--footer">
+      <span class="brand-mark">Tábuas com Joana</span>
+    </div>
+        <p>Manual Prático Tábuas Lucrativas.</p>
+      </div>
+      <div class="legal-col">
+        <p>Suporte: <a href="mailto:tabuascomjoana@gmail.com"><strong>tabuascomjoana@gmail.com</strong></a></p>
+        <p>Política de Reembolso disponível na página da oferta.</p>
+      </div>
+    </div>
+    <div class="container tiny center">
+         © <span id="year"></span> Tábuas com Joana. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- Modais (placeholders) -->
+  <div class="modal" id="modal-privacy" aria-hidden="true" role="dialog" aria-labelledby="privacy-title">
+    <div class="modal-content">
+      <button class="modal-close" data-close>×</button>
+      <h3 id="privacy-title">Política de Privacidade (resumo)</h3>
+      <p>Insira aqui sua política de privacidade.</p>
+    </div>
+  </div>
+  <div class="modal" id="modal-terms" aria-hidden="true" role="dialog" aria-labelledby="terms-title">
+    <div class="modal-content">
+      <button class="modal-close" data-close>×</button>
+      <h3 id="terms-title">Termos de Uso (resumo)</h3>
+      <p>Insira aqui seus termos de uso.</p>
+    </div>
+  </div>
+</body>
+</html>
