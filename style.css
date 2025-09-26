@@ -843,3 +843,30 @@ a:focus-visible, button:focus-visible{
     line-height: 1.1;
   }
 }
+
+/* ===== Remover "Tabuas com Joana" apenas no MOBILE e ajustar header ===== */
+@media (max-width: 880px){
+  /* some com a marca no mobile */
+  .site-header .brand{ display: none !important; }
+
+  /* header com 2 colunas: [hambúrguer] [área livre] */
+  .site-header .nav{
+    display: grid;
+    grid-template-columns: 44px 1fr !important;
+    align-items: center;
+    justify-items: start;
+    min-height: 64px;
+  }
+
+  /* hambúrguer fica à esquerda, no tamanho original */
+  .site-header .nav-toggle{
+    grid-column: 1;
+    justify-self: start;
+    width: 44px; height: 44px;
+    padding: 10px;
+  }
+  .site-header .nav-toggle span{ width: 24px; }
+
+  /* remove qualquer “placeholder” usado antes */
+  .site-header .nav::after{ content: none !important; }
+}
