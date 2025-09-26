@@ -726,7 +726,7 @@ a:focus-visible, button:focus-visible{
   .site-header .brand{
     justify-self: center;
     align-self: center;
-    margin-top: 8px;       /* ajuste fino para “descer” a marca */
+    margin-top: 80px;       /* ajuste fino para “descer” a marca */
   }
 
   /* tamanho confortável no mobile */
