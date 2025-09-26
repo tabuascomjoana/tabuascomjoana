@@ -900,3 +900,16 @@ a:focus-visible, button:focus-visible{
 @media (max-width: 880px){
   .no-wrap-mobile{ white-space: nowrap; }
 }
+
+/* Mobile: reduzir apenas o destaque "R$ 3.000,00" no hero */
+@media (max-width: 880px){
+  /* afeta só o highlight do título do hero */
+  #hero-title .highlight{
+    display: inline-block;
+    font-size: .9em;         /* ajuste fino: .9em (tente .85em se quiser menor) */
+    line-height: 1.05;
+  }
+  #hero-title .highlight .no-wrap-mobile{
+    white-space: nowrap;     /* continua impedindo quebra do valor */
+  }
+}
