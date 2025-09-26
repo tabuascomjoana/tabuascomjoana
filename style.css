@@ -682,3 +682,21 @@ a:focus-visible, button:focus-visible{
 @media (max-width: 880px){
   .hero{ min-height: calc(var(--vh, 1vh) * 100 - 64px); } /* 64px ~ header mobile */
 }
+
+/* ===== Mobile: hambúrguer à ESQUERDA e marca CENTRAL ===== */
+@media (max-width: 880px){
+  .site-header .nav{
+    display: grid;                         /* mantém grid */
+    grid-template-columns: auto 1fr;       /* [hambúrguer] [marca] */
+    align-items: center;
+    justify-items: stretch;                /* não centraliza tudo por padrão */
+  }
+  .site-header .nav-toggle{
+    grid-column: 1;                        /* fica na 1ª coluna = ESQUERDA */
+    justify-self: start;
+  }
+  .site-header .brand{
+    grid-column: 2;                        /* 2ª coluna */
+    justify-self: center;                  /* CENTRALIZA a marca */
+  }
+}
