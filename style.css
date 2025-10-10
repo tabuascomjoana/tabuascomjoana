@@ -1,34 +1,30 @@
-/* style.css */
-/* ============ Paleta & Tokens ============ */
-:root{
-  /* IDENTIDADE “Tábuas com Joana” */
-  --navy: #011526;     /* base de confiança */
-  --brand: #F2B872;    /* cor de marca (CTA/destaques) */
-  --accent-1: #A65F21; /* cobre/âmbar (apoio) */
-  --accent-2: #D9A87E; /* tan (suporte suave) */
-  --brand-dark: #593825; /* marrom escuro (títulos/contraste) */
+/* Linktree — Tábuas com Joana (segue identidade do manual) */
 
-  /* Mapeamentos p/ manter CSS existente funcionando */
-  --wine: var(--brand-dark);
-  --cream: #F7F3EC;   /* fundos claros */
-  --paper: #F2EEE7;
-  --ink: #181A1B;     /* texto principal */
+/* ============ Paleta & Tokens (mesmos nomes do manual) ============ */
+:root{
+  --navy:#011526;
+  --brand:#F2B872;
+  --accent-1:#A65F21;
+  --accent-2:#D9A87E;
+  --brand-dark:#593825;
+  --cream:#F7F3EC;
+  --paper:#F2EEE7;
+  --ink:#181A1B;
   --muted:#6c6a67;
 
-  /* Gradientes harmônicos */
   --grad-hero: linear-gradient(135deg, #011526 0%, #0B2439 55%, #011526 100%);
   --grad-accent: linear-gradient(90deg, #F2B872 0%, #D9A87E 100%);
   --grad-badge: linear-gradient(90deg, #A65F21 0%, #593825 100%);
-  --grad-gray: linear-gradient(90deg, #ffffff 0%, #9b9b9b 100%);
+  --shadow: 0 10px 30px rgba(0,0,0,.10);
+  --radius-2:16px; --radius-3:24px; --radius-4:32px;
 
-  --shadow: 0 10px 30px rgba(0,0,0,.08);
-  --radius-2:16px;
-  --radius-3:24px;
-  --radius-4:32px;
-  --container: 1360px;
+  /* Extras natalinos sutis, harmônicos com a paleta */
+  --xmas-red:#9A2B2B;
+  --xmas-green:#1F5C4B;
+  --xmas-grad: linear-gradient(135deg, rgba(154,43,43,.18), rgba(31,92,75,.18));
 }
 
-/* Reset & base */
+/* ============ Reset/Base ============ */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -36,880 +32,105 @@ body{
   font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   color:var(--ink);
   background:var(--cream);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  text-align:center;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-img{max-width:100%;height:auto;display:block}
-.container{width:min(100% - 160px, var(--container));margin-inline:auto}
-.center{text-align:center}
+img{max-width:100%; display:block}
 .tiny{font-size:.875rem;color:var(--muted)}
-ul,ol{padding-left:0;list-style-position:inside}
+.wrap{width:min(100% - 32px, 640px); margin: 24px auto 48px;}
 
-.display{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem, 2.6rem + 1.2vw, 4rem);
-  line-height:1.1;
+/* ============ Top brand minimal ============ */
+.top{
+  position:sticky; top:0; z-index:10;
+  background: rgba(1,21,38,.9); border-bottom:1px solid rgba(255,255,255,.06);
+  backdrop-filter:saturate(140%) blur(10px);
 }
-.h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.6rem, 1.2rem + 1.8vw, 2.6rem);
-  line-height:1.2;
-}
-.h2{ font-size:clamp(1.3rem, 1rem + 1vw, 1.6rem); font-weight:600; }
-.lead{font-size:1.08rem}
+.brand{display:grid; place-items:center; padding:14px 12px; text-align:center; color:#fff}
+.brand-mark{font-family:'Playfair Display',serif; font-weight:700; letter-spacing:.3px; font-size:clamp(1.1rem, 1rem + 0.8vw, 1.6rem)}
+.brand-sub{font-size:.92rem; opacity:.85}
 
-/* Botões */
-.btn{
-  --btn-bg:var(--wine); --btn-fg:#fff;
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  border:none;border-radius:999px;
-  padding:.9rem 1.3rem;font-weight:600;
-  text-decoration:none;color:var(--btn-fg);
-  background:var(--btn-bg);
-  box-shadow:0 6px 18px rgba(96,31,38,.25);
-  transition: transform .15s ease, box-shadow .3s ease, background .3s ease, opacity .3s ease;
-}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(96,31,38,.35)}
-.btn:active{transform:translateY(0)}
-.btn-primary{ background: var(--brand); }
-.btn-primary:hover{
-  box-shadow: 0 12px 28px rgba(213,162,58,.35);
-  filter: saturate(108%);
-}
-.btn-outline{background:transparent;color:var(--wine);border:2px solid var(--wine)}
-.btn-sm{padding:.6rem 1rem}
-.btn-lg{padding:1rem 1.6rem}
-.btn-xl{padding:1.2rem 1.9rem;font-size:1.1rem}
-.btn-pulse{animation: pulse 1.8s infinite}
-@keyframes pulse{ 0%,100%{box-shadow:0 0 0 0 rgba(96,31,38,.4)} 50%{box-shadow:0 0 0 14px rgba(96,31,38,0)} }
-
-/* Header */
-.site-header{
-  position:sticky;top:0;z-index:50;background:rgba(244,242,239,.8);
-  backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid rgba(0,0,0,.06);
-}
-.site-header.shrink{box-shadow:0 6px 18px rgba(0,0,0,.06)}
-.nav{display:grid;place-items:center;gap:8px;min-height:72px}
-.brand{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);align-items:center}
-.brand-mark{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.3px}
-.brand-sub{font-size:.85rem;color:var(--muted)}
-.nav-links{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap}
-.nav-links a:not(.btn){color:var(--ink);text-decoration:none;font-weight:500}
-.nav-links a:not(.btn):hover{color:var(--wine)}
-.nav-toggle{display:none;flex-direction:column;gap:5px;background:transparent;border:none}
-.nav-toggle span{width:24px;height:2px;background:var(--ink);display:block;border-radius:2px}
-@media (max-width:880px){
-  .nav-toggle{display:flex}
-  .nav-links{
-    position:fixed;inset:64px 0 auto 0;background:var(--paper);padding:18px 24px;
-    display:grid;gap:16px;border-bottom:1px solid rgba(0,0,0,.06);
-    transform:translateY(-120%);transition:transform .3s ease
-  }
-  .nav-links.open{transform:translateY(0)}
-}
-
-/* ===== HERO (imagem menor) ===== */
-.hero{
-  position:relative;isolation:isolate;min-height:calc(100vh - 72px);
-  display:flex;align-items:center;
-  padding:clamp(36px, 5vw, 72px) 0 24px 0;
-  background:
-    radial-gradient(1200px 420px at 10% 0%, rgba(242,184,114,.18), transparent 70%),
-    radial-gradient(800px 420px at 100% 10%, rgba(166,95,33,.14), transparent 70%),
-    var(--grad-hero);
-  color:#fff;
-}
-
-.hero:before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.05) 40%, transparent 70%);
-}
-.hero-grid{
-  display:grid;grid-template-columns:1.15fr .85fr;gap:32px;place-items:center;
-}
-.hero .lead{color:#f9f9f9}
-.highlight{
-  background: linear-gradient(90deg, #fff 0%, #EBD089 70%);
-  color:#2b1e14;
-}
-.subline{display:block;font-size:1.2rem;margin-top:.4rem;opacity:.95}
-.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
-.cta-micro{font-size:.9rem;opacity:.9}
-
-/* >>> Redução real da imagem do HERO */
-.hero-image{position:relative}
-.hero-image img{
-  width: clamp(320px, 30vw, 520px);
-  height: auto;
-  margin-inline:auto;
-  border-radius:clamp(16px, 2vw, 28px);
-  box-shadow:0 40px 80px rgba(0,0,0,.25);
-  border:3px solid rgba(255,255,255,.18);
-}
-.floating-badge{
-  position:absolute;bottom:10%;left:8%;
-  background:var(--grad-rose);color:#2a1c1f;
-  border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);
-  transform:rotate(-3deg);
-}
-.badge-number{font-weight:800;font-size:1.3rem}
-.badge-label{font-size:.8rem;opacity:.9}
-
-/* Seções base */
-.section{padding:clamp(56px, 8vw, 96px) 0;background:var(--cream)}
-.section-accent{background:var(--paper)}
-.section-contrast{background:#fff}
-.section-offer{
-  background:
-    radial-gradient(800px 360px at 80% 20%, rgba(237,189,162,.35), transparent 70%),
-    radial-gradient(1000px 420px at 0% 100%, rgba(75,84,54,.18), transparent 70%),
-    var(--cream);
-}
-.section-call{
-  background:
-    radial-gradient(1400px 520px at 100% 100%, rgba(155,155,155,.18), transparent 70%),
-    var(--grad-gray);
-  color:#1a1a1a;
-}
-
-.section-head{margin-bottom:28px}
-.section-head.narrow{max-width:800px;margin-inline:auto}
-.section-sub{color:var(--muted)}
-
-/* Cards “aprender” */
-.cards-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;margin-top:22px}
+/* ============ Cards/Links ============ */
 .card{
-  background:#fff;border:1px solid rgba(0,0,0,.06);
-  border-radius:var(--radius-3);
-  padding:22px 20px;box-shadow:var(--shadow);
-  transition:transform .2s ease, box-shadow .3s ease;
+  display:block; text-decoration:none; color:inherit; background:#fff;
+  border:1px solid rgba(0,0,0,.06); border-radius:20px; box-shadow:var(--shadow);
+  padding:0; overflow:hidden; transition: transform .16s ease, box-shadow .3s ease, border-color .3s ease;
+  margin: 14px 0;
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
-.card h3{margin-top:0;color:var(--wine);display:inline-block}
-.card p{margin:.4rem 0 0}
-@media (max-width:1000px){.cards-grid{grid-template-columns:repeat(2, 1fr)}}
-@media (max-width:640px){.cards-grid{grid-template-columns:1fr}}
+.card:hover{ transform: translateY(-2px); box-shadow:0 18px 44px rgba(0,0,0,.10); border-color:rgba(0,0,0,.12) }
+.card-body{ padding:18px 18px 20px; text-align:center }
+.title{ margin:.2rem 0 .25rem; font-family:'Playfair Display',serif; color:var(--brand-dark); font-size:clamp(1.15rem, 1rem + .8vw, 1.6rem) }
+.desc{ margin:0 0 .8rem; color:#333 }
+.cta{
+  display:inline-block; padding:.75rem 1.1rem; font-weight:700; border-radius:999px;
+  background:var(--brand); color:#111; border:1px solid rgba(0,0,0,.06);
+  transition: filter .2s ease, box-shadow .3s ease;
+}
+.card:hover .cta{ filter:saturate(110%); box-shadow:0 10px 26px rgba(1,21,38,.18) }
 
-/* Grid 2 colunas */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;justify-items:center}
-.photo-frame img{
-  border-radius:var(--radius-4);border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow);margin-inline:auto
+/* Workshop com tema natalino */
+.card-workshop{
+  position:relative;
+  background:
+    var(--xmas-grad),
+    radial-gradient(900px 300px at 100% 0%, rgba(242,184,114,.22), transparent 70%),
+    #fff;
+  border-color: rgba(154,43,43,.2);
 }
-@media (max-width:920px){.grid-2{grid-template-columns:1fr}}
-
-/* Listas de conteúdo */
-.list-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.icon-list{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-3);padding:18px;box-shadow:var(--shadow)}
-.icon-list li{margin:.4rem 0}
-.bonus{
-  margin-top:22px;background:var(--grad-rose);color:#2a1c1f;
-  border-radius:var(--radius-3);padding:20px;border:1px solid rgba(0,0,0,.06)
+.card-workshop .title{ color: var(--xmas-red); }
+.card-workshop .desc{ color:#2a2a2a }
+.ribbon{
+  position:absolute; top:12px; right:-42px; transform:rotate(35deg);
+  background: linear-gradient(90deg, var(--xmas-green), #144338);
+  color:#fff; padding:6px 48px; font-weight:700; letter-spacing:.5px; box-shadow:var(--shadow);
+  pointer-events:none;
 }
-.bonus h3{margin:0 0 .4rem 0}
-.bonus a.btn-outline{border-color:#2a1c1f;color:#2a1c1f}
-@media (max-width:780px){.list-columns{grid-template-columns:1fr}}
-
-/* Público */
-.fit-list,.not-list{
-  background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-3);
-  padding:18px;box-shadow:var(--shadow);margin-inline:auto;max-width:720px
-}
-.not-list li{margin:.5rem 0}
-
-/* ===== Seção SOBRE (sem foto grande; galeria simétrica) ===== */
-#sobre{ overflow-x: clip; }
-#sobre .about-grid{ grid-template-columns: 1fr; justify-items:center; gap:clamp(16px, 3vw, 28px); }
-#sobre .about-copy{ max-width:920px; margin-inline:auto; text-align:center; }
-
-/* Galeria perfeitamente centrada (1–1–1) */
-#sobre .gallery{
-  max-width: 880px;
-  margin-inline:auto;
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap: clamp(12px, 2vw, 20px);
-  place-items:center;
-}
-#sobre .gallery img{
-  width:100%;
-  aspect-ratio:4 / 3;
-  object-fit:cover;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: var(--shadow);
-  border-radius:14px;
-}
-@media (max-width:980px){
-  #sobre .gallery{ max-width:720px; grid-template-columns:repeat(2,1fr); }
-  #sobre .gallery img:nth-child(3){ grid-column:1 / -1; justify-self:center; width:min(100%, 420px); }
-}
-@media (max-width:520px){
-  #sobre .gallery{ max-width:520px; grid-template-columns:1fr; }
+.badge-limited{
+  display:inline-block; margin:.2rem 0 .5rem; font-weight:700; font-size:.82rem;
+  color:#2b1e14; background:var(--grad-badge); color:#FDF7EC;
+  padding:6px 10px; border-radius:999px;
 }
 
-/* Oferta / Garantia */
-.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;justify-items:center}
-.offer-card{
-  background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-4);padding:24px;box-shadow:var(--shadow);
-  display:flex;flex-direction:column;gap:16px;align-items:center;max-width:720px
-}
-.offer-list{margin:0}
-.price{display:flex;flex-direction:column;align-items:center;gap:6px}
-.price-now{font-size:2.4rem;font-weight:800;color:var(--wine);letter-spacing:.5px}
-.price-now span:last-child{font-size:1.4rem}
-.price-note{color:var(--muted)}
-.guarantee{display:flex;align-items:center;gap:12px;background:var(--paper);border-radius:14px;padding:12px;border:1px solid rgba(0,0,0,.06)}
-.mockup img{border-radius:var(--radius-4);border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow);margin-inline:auto}
-@media (max-width:980px){.offer-grid{grid-template-columns:1fr}}
+/* Countdown */
+.countdown{ display:flex; justify-content:center; gap:10px; margin:.3rem 0 .9rem }
+.countdown div{ background: #F7F3EC; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:8px 10px; min-width:60px }
+.countdown span{ display:block; font-weight:800; font-feature-settings:"tnum"; font-variant-numeric:tabular-nums; font-size:1.1rem; color:#1a1a1a }
+.countdown small{ display:block; font-size:.72rem; color:var(--muted); margin-top:2px; }
 
-/* FAQ */
-.faq details{
-  background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:14px 16px;margin:10px auto;box-shadow:var(--shadow);max-width:900px;text-align:center
-}
-.faq summary{cursor:pointer;font-weight:600;color:var(--wine)}
-.faq p{margin:.6rem 0 0 0}
+/* WhatsApp leve destaque */
+.card-whats .title{ color:#0f6d53 }
+.card-whats .cta{ background:#1ea67b; color:#081c17 }
 
-/* Chamada final */
-.section-call .btn{background:var(--ink)}
-.section-call .btn:hover{box-shadow:0 12px 28px rgba(0,0,0,.25)}
-.section-call .cta-micro{margin-top:8px;color:#222}
+/* Microcopy */
+.micro{ text-align:center; color:var(--muted); margin-top:14px }
 
 /* Footer */
-.site-footer{background:#121212;color:#d6d6d6;padding:40px 0 24px}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:20px;place-items:center}
-.site-footer a{color:#f1f1f1;text-decoration:none}
-.site-footer a:hover{opacity:.9}
-.brand--footer .brand-mark{color:#fff}
+.foot{ text-align:center; padding:28px 0 36px; color:#4b4b4b }
 
-/* Modais */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;place-items:center;padding:16px}
-.modal[aria-hidden="false"]{display:grid}
-.modal-content{
-  width:min(760px, 100%);background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:20px;position:relative;text-align:left
+/* Reveal (mesmo padrão de micro-ânimação do manual) */
+.reveal{ opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease }
+.reveal.show{ opacity:1; transform:translateY(0) }
+
+/* Neve sutil (decorativo) — performance ok */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(2px 2px at 20% 10%, rgba(255,255,255,.9) 50%, transparent 51%),
+    radial-gradient(2px 2px at 60% 30%, rgba(255,255,255,.8) 50%, transparent 51%),
+    radial-gradient(2px 2px at 80% 20%, rgba(255,255,255,.85) 50%, transparent 51%);
+  animation:snow 12s linear infinite;
+  opacity:.35;
 }
-.modal-close{position:absolute;top:8px;right:8px;border:none;background:transparent;font-size:1.6rem;cursor:pointer}
-
-/* Efeitos */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
-.reveal.show{opacity:1;transform:translateY(0)}
-.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}
-.delay-3{transition-delay:.24s}.delay-4{transition-delay:.32s}
-.delay-5{transition-delay:.4s}.delay-6{transition-delay:.48s}
-
-/* Gradiente no texto dos cards */
-.card:hover h3{
-  background-image: linear-gradient(90deg, var(--wine), #a64d58);
-  background-clip: text; -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
+@keyframes snow{
+  0%{ background-position: 0 -60px, 0 -120px, 0 -30px; }
+  100%{ background-position: 0 600px, 0 1200px, 0 300px; }
 }
 
-/* Responsividade ultra-wide */
-@media (min-width: 1440px){ :root{ --container: 1440px; } }
-@media (min-width: 1680px){ .container{ width:min(100% - 200px, 1560px); } }
-
-/* opcional: um pouco mais de respiro no rodapé do hero */
-.hero{ padding-bottom: 48px; }
-
-/* ==== Header: nome do curso no topo ==== */
-.brand-mark{
-  /* tamanho confortável no mobile e mais forte no desktop */
-  font-size: clamp(1.1rem, 1rem + 0.8vw, 1.8rem);
-  line-height: 1;
-}
-
-/* opcional: se quiser ainda maior em telas largas */
-@media (min-width: 1280px){
-  .brand-mark{ font-size: 2rem; }
-}
-
-/* Destaque (span.highlight) com leve banho de dourado */
-.highlight{
-  background: linear-gradient(90deg, #fff 0%, #F9D889 70%);
-  color:#2b1e14; /* melhor contraste sobre fundo claro */
-}
-
-/* Seções/banners de bônus com a acentuação dourada */
-.bonus{
-  background: var(--grad-accent);
-  color:#2b1e14;
-  border-color: rgba(92,59,40,.15); /* leve tom do marrom */
-}
-.bonus a.btn-outline{
-  border-color: var(--brand-dark);
-  color: var(--brand-dark);
-}
-
-/* Gradiente no h3 dos cards agora com a dupla marrom+dourado */
-.card:hover h3{
-  background-image: linear-gradient(90deg, var(--brand-dark), #C3872E);
-  background-clip: text; -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-}
-
-/* Itens com “cor do título” que antes usavam --wine */
-.faq summary,
-.price-now{ color: var(--brand-dark); }
-
-/* Foco de acessibilidade com a cor predominante */
+/* Acessibilidade (focus) */
 a:focus-visible, button:focus-visible{
   outline:3px solid var(--brand);
   outline-offset:3px;
 }
 
-/* CTA primário na cor de marca */
-.btn-primary{ background: var(--brand); color:#111; }
-.btn-primary:hover{
-  box-shadow: 0 12px 28px rgba(1,21,38,.25);
-  filter: saturate(108%);
-}
-
-/* Outline usa o marrom escuro */
-.btn-outline{ border-color: var(--brand-dark); color: var(--brand-dark); }
-
-/* Destaque de copy com banho de areia */
-.highlight{
-  background: linear-gradient(90deg, #fff 0%, #EED49E 70%);
-  color:#2b1e14;
-}
-
-/* Card headings com gradiente marrom → cobre */
-.card:hover h3{
-  background-image: linear-gradient(90deg, var(--brand-dark), var(--accent-1));
-  background-clip:text; -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent; color:transparent;
-}
-
-/* FAQ e preço com marrom escuro */
-.faq summary, .price-now{ color: var(--brand-dark); }
-
-/* Bônus com dourado + tan */
-.bonus{ background: var(--grad-accent); color:#2b1e14; border-color: rgba(89,56,37,.18); }
-.bonus a.btn-outline{ border-color: var(--brand-dark); color: var(--brand-dark); }
-
-/* Badge flutuante com cobre + marrom */
-.floating-badge{
-  background: var(--grad-badge) !important;
-  color: #FDF7EC;
-}
-
-/* Header/Topbar em navy translúcido + links claros */
-.site-header{
-  background: rgba(1,21,38,.82) !important;
-  backdrop-filter: saturate(140%) blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.nav-toggle span{ background:#f3f3f3; }
-.nav-links a:not(.btn){ color:#f5f5f5; }
-.nav-links a:not(.btn):hover{ color: var(--brand); }
-/* Botão do topo permanece legível em fundo escuro */
-.site-header .nav-links .btn{ color:#111; }
-.site-header .nav-links .btn:hover{ color:#111; }
-
-/* Footer em navy sólido */
-.site-footer{ background: var(--navy) !important; color:#E8ECEF; }
-.brand--footer .brand-mark{ color:#fff; }
-/* Links do footer em alto contraste */
-.site-footer a{ color:#F2F4F7; }
-.site-footer a:hover{ color:#ffffff; }
-
-/* Foco de acessibilidade na cor de marca */
-a:focus-visible, button:focus-visible{
-  outline:3px solid var(--brand);
-  outline-offset:3px;
-}
-
-/* Topbar: marca branca no header */
-.site-header .brand,
-.site-header .brand .brand-mark{
-  color: #fff !important;
-}
-
-/* (opcional) manter branco ao passar o mouse */
-.site-header .brand:hover{
-  color:#fff;
-  opacity:.92;
-}
-
-/* CTA final (#final): igual aos demais e com texto preto */
-#final .btn{
-  background: var(--brand) !important; /* mesma cor dos outros CTAs */
-  color: #111 !important;              /* texto PRETO */
-  border-color: var(--brand);
-}
-#final .btn:hover{
-  box-shadow: 0 12px 28px rgba(1,21,38,.25);
-  filter: saturate(108%);
-  color: #111 !important;
-}
-
-/* Hero > Trust badges: só o ✓, sem a bolinha da lista */
-.trust-badges{
-  list-style: none;          /* remove o marcador padrão */
-  padding-left: 0;
-  margin: 12px 0 0;
-  display: flex;             /* mantém em linha, se quiser */
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
-}
-.trust-badges li{
-  list-style: none;          /* reforça a remoção em cada <li> */
-  padding-left: 0;
-}
-
-/* Fallback extra (se algum navegador insistir no marcador) */
-.trust-badges li::marker{ content: ""; }
-
-/* ===== Público: alinhado, sem bolinhas, ✓ e x via CSS ===== */
-
-/* Alinhamento das duas colunas pelo topo e largura simétrica */
-#publico .grid-2{
-  align-items: start;          /* títulos e listas começam alinhados no topo */
-  justify-items: stretch;      /* as duas colunas ocupam a mesma largura */
-  gap: clamp(16px, 4vw, 40px);
-}
-
-/* Remover marcadores padrão e alinhar texto */
-#publico .fit-list,
-#publico .not-list{
-  list-style: none;            /* sem bolinha */
-  padding-left: 0;
-  margin: 12px auto 0;
-  text-align: left;            /* leitura mais natural */
-  max-width: 720px;            /* mesma largura para as duas listas */
-}
-
-/* Cada item com ícone à esquerda (✓ ou x) */
-#publico .fit-list li,
-#publico .not-list li{
-  position: relative;
-  padding-left: 1.6em;         /* espaço para o ícone */
-  margin: .5rem 0;
-}
-
-/* ✓ no “é pra você” (usa cor de marca/apoio) */
-#publico .fit-list li::before{
-  content: "✓";
-  position: absolute; left: 0; top: .1em;
-  font-weight: 700;
-  color: var(--brand-dark);    /* #593825 — harmônico com a paleta */
-}
-
-/* x no “não é pra você” (sem bolinha, só o x) */
-#publico .not-list li::before{
-  content: "x";
-  position: absolute; left: 0; top: .1em;
-  font-weight: 700;
-  color: var(--accent-1);      /* #A65F21 — cobre elegante */
-}
-
-/* Garantia extra: remove qualquer marcador residual do <ul>/<li> */
-#publico .fit-list li::marker,
-#publico .not-list li::marker{ content: ""; }
-
-/* ===== Público: equalizar boxes e aumentar o respiro ===== */
-
-/* Os itens da linha esticam igualmente */
-#publico .grid-2{
-  align-items: stretch;                /* ocupa a altura total da linha */
-}
-
-/* Em cada coluna: título em cima e a caixa ocupando o restante */
-#publico .grid-2 > div{
-  display: grid;
-  grid-template-rows: auto 1fr;        /* título | caixa */
-}
-
-/* Caixas (é pra você / não é pra você) alinhadas e com padding maior */
-#publico .fit-list,
-#publico .not-list{
-  width: 100%;
-  max-width: none;                     /* remove limite que desalinhava */
-  margin: 12px 0 0;                    /* sem auto nas laterais */
-  padding: clamp(20px, 2.4vw, 28px);   /* + respiro interno */
-  text-align: left;                    /* leitura natural */
-}
-
-/* Espaço entre itens e ajuste do ícone lateral */
-#publico .fit-list li,
-#publico .not-list li{
-  position: relative;
-  padding-left: 1.6em;                 /* espaço para ✓ / x */
-  margin: .6rem 0;
-}
-
-/* Mantém os ícones (já definidos antes) */
-#publico .fit-list li::before{ content: "✓"; left: 0; top: .1em; font-weight: 700; }
-#publico .not-list li::before{ content: "x"; left: 0; top: .1em; font-weight: 700; }
-
-/* Mobile: um toque a mais de conforto */
-@media (max-width: 640px){
-  #publico .fit-list,
-  #publico .not-list{ padding: 18px; }
-}
-
-/* ===== Público: caixas com altura exatamente igual ===== */
-
-/* A linha estica pelo item mais alto */
-#publico .grid-2{ align-items: stretch; }
-
-/* Cada coluna: título (auto) + caixa (preenche) */
-#publico .grid-2 > div{
-  display: grid;
-  grid-template-rows: auto 1fr; /* título | box */
-}
-
-/* As caixas ocupam 100% da área disponível */
-@media (min-width: 921px){
-  #publico .fit-list,
-  #publico .not-list{
-    height: 100%;          /* garante preenchimento total do track */
-    display: flex;         /* permite espaçar conteúdo se quiser */
-    flex-direction: column;
-  }
-}
-
-/* ===== Público: títulos com o mesmo baseline e caixas alinhadas ===== */
-#publico .grid-2{
-  align-items: stretch; /* as duas colunas ocupam a mesma altura da linha */
-}
-#publico .grid-2 > div{
-  display: grid;
-  grid-template-rows: auto 1fr;              /* título | box */
-  row-gap: clamp(12px, 1.8vw, 18px);         /* controla o espaço entre h2 e a caixa */
-}
-#publico .grid-2 > div > h2{
-  margin: 0;                                  /* evita variação por margens */
-}
-#publico .fit-list,
-#publico .not-list{
-  /* sem margens: começamos logo após o row-gap, garantindo alinhamento do topo */
-  margin: 0;
-  width: 100%;
-  max-width: none;
-  padding: clamp(20px, 2.4vw, 28px);          /* respiro interno */
-  text-align: left;
-}
-
-/* Oferta & Garantia — frase abaixo da box */
-#oferta .section-foot{
-  margin-top: clamp(16px, 3vw, 28px);
-}
-#oferta .section-foot .brand-accent{
-  color: var(--brand); /* mesma cor do botão */
-}
-
-/* Oferta & Garantia: remover bolinhas da lista, manter só os checks do texto */
-#oferta .offer-list{
-  list-style: none;
-  padding-left: 0;
-  margin: 0;           /* já existia, fica aqui pra centralizar a regra */
-}
-#oferta .offer-list li{
-  list-style: none;
-  padding-left: 0;
-}
-#oferta .offer-list li::marker{ content: ""; } /* garante remoção do marcador */
-
-/* ================== MOBILE FIRST PATCH ================== */
-
-/* 1) Gutters mais confortáveis no mobile + respiro de seção */
-@media (max-width: 640px){
-  .container{ width: min(100% - 32px, var(--container)); } /* ~16px de margem lateral */
-  .section{ padding: 40px 0; }
-}
-
-/* 2) Header: botão de menu com área de toque maior e links legíveis */
-@media (max-width: 880px){
-  .nav-toggle{ padding: 10px; }
-  .nav-links{ gap: 20px; padding: 22px 24px; }
-  .nav-links a{ font-size: 1.05rem; }
-}
-
-/* 3) HERO: empilhar, centralizar e ajustar imagem + badge */
-@media (max-width: 880px){
-  .hero{ padding: 42px 0 36px; }
-  .hero-grid{ grid-template-columns: 1fr; gap: 18px; }
-  .hero-copy{ text-align: center; }
-  .hero-image{ order: 2; }    /* texto vem antes, imagem depois */
-  .hero-image img{
-    width: min(88vw, 420px);  /* garante que a imagem não “estoure” */
-  }
-  .floating-badge{
-    bottom: 6%;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);  /* centraliza a badge */
-  }
-}
-
-/* 4) Trust badges do hero: quebra de linha se precisar (sem barras horizontais) */
-.trust-badges{ flex-wrap: wrap; row-gap: 6px; }
-
-/* 5) Cards: já viram 2 colunas e 1 coluna; só +respiro em telas muito pequenas */
-@media (max-width: 420px){
-  .card{ padding: 18px 16px; }
-}
-
-/* 6) Grids de conteúdo: garantir 1 coluna cedo (já ok, reforço para telas estreitas) */
-@media (max-width: 560px){
-  .list-columns{ grid-template-columns: 1fr; }
-}
-
-/* 7) Oferta: mockup abaixo da box e CTA full-width opcional no mobile */
-@media (max-width: 980px){
-  .offer-grid{ grid-template-columns: 1fr; }
-}
-@media (max-width: 640px){
-  #oferta .btn{ width: 100%; max-width: 520px; }
-}
-
-/* 8) Público: reforço de leitura e respiro */
-@media (max-width: 640px){
-  #publico .fit-list,
-  #publico .not-list{
-    padding: 18px;
-    font-size: 1rem;
-  }
-}
-
-/* 9) Evitar rolagem horizontal acidental no mobile */
-@media (max-width: 640px){
-  html, body{ overflow-x: hidden; }
-}
-
-/* 10) 100vh real no mobile (usado com a variável --vh configurada no JS) */
-@media (max-width: 880px){
-  .hero{ min-height: calc(var(--vh, 1vh) * 100 - 64px); } /* 64px ~ header mobile */
-}
-
-/* ===== Mobile: hambúrguer à ESQUERDA e marca CENTRAL ===== */
-@media (max-width: 880px){
-  .site-header .nav{
-    display: grid;                         /* mantém grid */
-    grid-template-columns: auto 1fr;       /* [hambúrguer] [marca] */
-    align-items: center;
-    justify-items: stretch;                /* não centraliza tudo por padrão */
-  }
-  .site-header .nav-toggle{
-    grid-column: 1;                        /* fica na 1ª coluna = ESQUERDA */
-    justify-self: start;
-  }
-  .site-header .brand{
-    grid-column: 2;                        /* 2ª coluna */
-    justify-self: center;                  /* CENTRALIZA a marca */
-  }
-}
-/* ===== Header mobile: respeitar notch e descer a marca ===== */
-@media (max-width: 880px){
-  /* adiciona “respiro” no topo p/ iPhone/Android com notch */
-  .site-header{
-    /* Safari iOS moderno */
-    padding-top: calc(env(safe-area-inset-top, 0px) + 10px);
-    /* leve respiro embaixo para equilibrar */
-    padding-bottom: 8px;
-  }
-  /* fallback p/ Safari iOS mais antigo */
-  @supports (padding-top: constant(safe-area-inset-top)) {
-    .site-header{
-      padding-top: calc(constant(safe-area-inset-top) + 10px);
-    }
-  }
-
-  /* garante altura e centralização vertical do conteúdo do header */
-  .site-header .nav{
-    min-height: 64px;
-    align-items: center;
-  }
-
-  /* a marca fica exatamente no centro e um pouco mais abaixo */
-  .site-header .brand{
-    justify-self: center;
-    align-self: center;
-    margin-top: 80px;       /* ajuste fino para “descer” a marca */
-  }
-
-  /* tamanho confortável no mobile */
-  .site-header .brand-mark{
-    font-size: clamp(1.1rem, 1rem + 1vw, 1.6rem);
-    line-height: 1.1;
-  }
-}
-
-/* Header mobile: hambúrguer à esquerda e nome CENTRAL */
-@media (max-width: 880px){
-  /* header sólido (evita faixas de outras cores) */
-  .site-header{ background: var(--navy) !important; }
-
-  /* 3 colunas: [hamburger 44px] [centro 1fr] [placeholder 44px] */
-  .site-header .nav{
-    display: grid;
-    grid-template-columns: 44px 1fr 44px;
-    align-items: center;
-    min-height: 64px;
-  }
-
-  /* hambúrguer: mesmo tamanho, só posicionamento à esquerda */
-  .site-header .nav-toggle{
-    grid-column: 1;
-    justify-self: start;
-    width: 44px; height: 44px;       /* área de toque */
-    padding: 10px;
-  }
-  .site-header .nav-toggle span{ width: 24px; } /* NÃO muda o ícone */
-
-  /* placeholder à direita para manter o título exatamente no centro */
-  .site-header .nav::after{
-    content: "";
-    grid-column: 3;
-    inline-size: 44px;
-    block-size: 1px; /* só reserva espaço */
-  }
-
-  /* nome central, sem “subir” */
-  .site-header .brand{
-    grid-column: 2;
-    justify-self: center;
-    align-self: center;
-    margin-top: 0;                 /* zera qualquer ajuste anterior */
-  }
-  .site-header .brand-mark{
-    font-size: clamp(1.1rem, 1rem + 1vw, 1.6rem);
-    line-height: 1.1;
-    color: #fff !important;        /* branco no topo */
-  }
-}
-
-/* Header sempre azul/navy sólido (sem translucidez que deixa “faixas”) */
-.site-header{
-  background: var(--navy) !important;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-
-@media (max-width: 880px){
-  .nav-links{
-    background: var(--navy);
-    border-bottom-color: rgba(255,255,255,.08);
-  }
-  .nav-links a:not(.btn){ color:#f5f5f5; }
-  .nav-links a:not(.btn):hover{ color:var(--brand); }
-}
-
-/* ===== Header mobile (≤880px): hambúrguer à ESQUERDA e nome AO LADO ===== */
-@media (max-width: 880px){
-  /* Cor única e segura (sem translucidez) */
-  .site-header{
-    background: var(--navy) !important;
-    padding-top: calc(env(safe-area-inset-top, 0px) + 6px);
-    padding-bottom: 8px;
-  }
-  @supports (padding-top: constant(safe-area-inset-top)) {
-    .site-header{
-      padding-top: calc(constant(safe-area-inset-top) + 6px);
-    }
-  }
-
-  /* 3 colunas: [hamburger 44px] [marca auto] [espaço flex 1fr] */
-  .site-header .nav{
-    display: grid;
-    grid-template-columns: 44px auto 1fr;  /* <<< muda de 44px 1fr 44px para colocar a marca AO LADO do hambúrguer */
-    align-items: center;
-    justify-items: start;                  /* não centraliza as células */
-    min-height: 64px;
-  }
-
-  /* hambúrguer à esquerda, mesmo tamanho (não cresce) */
-  .site-header .nav-toggle{
-    grid-column: 1;
-    justify-self: start;
-    width: 44px; height: 44px;
-    padding: 10px;
-  }
-  .site-header .nav-toggle span{ width: 24px; } /* mantém o ícone pequeno */
-
-  /* remove o placeholder que centralizava a marca antes */
-  .site-header .nav::after{ content: none !important; }
-
-  /* marca imediatamente AO LADO do hambúrguer (coluna 2) */
-  .site-header .brand{
-    grid-column: 2;
-    justify-self: start;
-    align-self: center;
-    margin: 0;                             /* zera qualquer margin-top anterior */
-  }
-  .site-header .brand-mark{
-    color: #fff !important;
-    font-size: clamp(1.1rem, 1rem + 1vw, 1.6rem);
-    line-height: 1.1;
-  }
-}
-
-/* ===== Remover "Tabuas com Joana" apenas no MOBILE e ajustar header ===== */
-@media (max-width: 880px){
-  /* some com a marca no mobile */
-  .site-header .brand{ display: none !important; }
-
-  /* header com 2 colunas: [hambúrguer] [área livre] */
-  .site-header .nav{
-    display: grid;
-    grid-template-columns: 44px 1fr !important;
-    align-items: center;
-    justify-items: start;
-    min-height: 64px;
-  }
-
-  /* hambúrguer fica à esquerda, no tamanho original */
-  .site-header .nav-toggle{
-    grid-column: 1;
-    justify-self: start;
-    width: 44px; height: 44px;
-    padding: 10px;
-  }
-  .site-header .nav-toggle span{ width: 24px; }
-
-  /* remove qualquer “placeholder” usado antes */
-  .site-header .nav::after{ content: none !important; }
-}
-
-/* ===== MOBILE: esconder 100% o menu fechado (sem pontinha) ===== */
-@media (max-width: 880px){
-  /* posiciona logo abaixo do header + notch */
-  .nav-links{
-    inset: calc(64px + env(safe-area-inset-top, 0px)) 0 auto 0;
-    transform: translateY(calc(-100% - 16px)) !important; /* sobe 100% + folga */
-    opacity: 0;
-    pointer-events: none;
-    border-bottom-color: transparent; /* não mostra a linha enquanto fechado */
-    will-change: transform;
-  }
-  @supports (padding-top: constant(safe-area-inset-top)){
-    .nav-links{
-      inset: calc(64px + constant(safe-area-inset-top)) 0 auto 0;
-    }
-  }
-  .nav-links.open{
-    transform: translateY(0) !important;
-    opacity: 1;
-    pointer-events: auto;
-    border-bottom-color: rgba(255,255,255,.08);
-    z-index: 60;
-  }
-}
-
-/* Mobile: não quebrar "R$ 3.000,00" em duas linhas */
-@media (max-width: 880px){
-  .no-wrap-mobile{ white-space: nowrap; }
-}
-
-/* Mobile: reduzir apenas o destaque "R$ 3.000,00" no hero */
-@media (max-width: 880px){
-  /* afeta só o highlight do título do hero */
-  #hero-title .highlight{
-    display: inline-block;
-    font-size: .9em;         /* ajuste fino: .9em (tente .85em se quiser menor) */
-    line-height: 1.05;
-  }
-  #hero-title .highlight .no-wrap-mobile{
-    white-space: nowrap;     /* continua impedindo quebra do valor */
-  }
+/* Mobile */
+@media (max-width:520px){
+  .countdown div{ min-width:56px; padding:7px 8px }
 }
