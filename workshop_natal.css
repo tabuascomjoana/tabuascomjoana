@@ -158,11 +158,11 @@ ul,ol{padding-left:0;list-style-position:inside}
 .quote{max-width:920px;margin:10px auto 0;padding:12px 18px;border-left:6px solid var(--brand);background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.06);text-align:left}
 .quote-small{max-width:800px}
 
-/* ===== Oferta & Investimento (refeito) ===== */
+/* ===== Oferta & Investimento (centralizado) ===== */
 .offer-grid{
   display: grid;
-  grid-template-columns: 1fr;     /* uma coluna */
-  place-items: center;            /* centraliza conteúdo */
+  grid-template-columns: 1fr;
+  place-items: center;
   gap: 24px;
 }
 .offer-card{
@@ -171,11 +171,11 @@ ul,ol{padding-left:0;list-style-position:inside}
   padding: 24px;
   box-shadow: var(--shadow);
   display: flex; flex-direction: column; gap: 16px; align-items: center;
-  max-width: 760px;               /* largura confortável */
+  max-width: 760px;
   width: 100%;
   text-align: center;
 }
-.offer-aside{ display:none; }     /* caso exista, escondemos nesta versão */
+.offer-aside{ display:none; }
 
 .price-dual{display:grid; grid-auto-flow:column; gap:16px; align-items:end}
 .price-current{font-size:2.4rem; font-weight:800; color:var(--xmas-green)}
@@ -187,41 +187,6 @@ ul,ol{padding-left:0;list-style-position:inside}
   display:flex; align-items:center; gap:12px;
   background:var(--paper); border-radius:14px; padding:12px;
   border:1px solid rgba(0,0,0,.06)
-}
-
-/* Countdown — centralizado, números monoespaçados e com micro animação */
-.countdown-wrap{ display:flex; justify-content:center; }
-.countdown{
-  display:flex; justify-content:center; gap:10px; margin:.3rem 0 .6rem;
-}
-.countdown div{
-  background:#F7F3EC;
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:12px;
-  padding:8px 10px;
-  min-width:60px;
-}
-.countdown span{
-  display:block; font-weight:800; font-variant-numeric: tabular-nums;
-  font-size:1.1rem; color:#1a1a1a;
-}
-.countdown small{
-  display:block; font-size:.72rem; color:var(--muted); margin-top:2px;
-}
-
-/* animação sutil quando o dígito muda */
-@keyframes bump {
-  0% { transform: translateY(0); opacity:1; }
-  30% { transform: translateY(-2px); opacity:.85; }
-  100% { transform: translateY(0); opacity:1; }
-}
-.countdown .bump { animation: bump .25s ease; }
-
-#investimento .section-foot{ margin-top: clamp(16px, 3vw, 28px) }
-#investimento .section-foot .brand-accent{ color: var(--brand) }
-
-@media (max-width:980px){
-  .offer-card{ max-width: 640px; }
 }
 
 /* ===== Botões ===== */
@@ -267,46 +232,9 @@ ul,ol{padding-left:0;list-style-position:inside}
 }
 
 /* === Ajuste do sub-head do HERO para alinhar com o título === */
-.hero .display{ margin-bottom: .25rem; } /* aproxima o espaçamento entre as linhas */
-
-.hero-meta{
-  gap: 0;                     /* sem “respiro” extra */
-  justify-items: center;      /* garante centralizado com o título */
-}
-
-.hero-meta > div{
-  background: transparent;    /* remove “chip” */
-  border: 0;
-  padding: 0;
-  width: auto;                 /* nada de largura forçada */
-}
-
-/* Mesma família e estética do título, só que menor */
-.hero-meta h1{
-  font-family: 'Playfair Display', serif;  /* mesma do .display */
-  font-weight: 700;
-  font-size: clamp(1.25rem, 1rem + 1.4vw, 1.8rem);
-  line-height: 1.2;
-  letter-spacing: .2px;
-  color: #fff;
-  margin: 0.1rem 0 0;
-  text-transform: none;       /* mantém “AO VIVO” como você escreveu */
-}
-.hero-meta h1 strong{ font-weight: 700; }
-
-/* Opcional: bolinha separadora mais elegante, se você usar “ · ” no texto */
-.hero-meta h1 .sep{ opacity: .8; margin: 0 .35ch; }
-
-/* HERO: centralizar o texto de data/duração (sem mudar mais nada) */
-.hero-meta{ text-align:center; gap:.25rem; }
-.hero-meta > div{
-  background: transparent;
-  border: 0;
-  padding: 0;
-  width: auto;
-  margin: 0 auto;
-}
-/* mesma família do título, só que menor */
+.hero .display{ margin-bottom: .25rem; }
+.hero-meta{ gap: 0; justify-items: center; }
+.hero-meta > div{ background: transparent; border: 0; padding: 0; width: auto; }
 .hero-meta h1{
   font-family:'Playfair Display', serif;
   font-weight:700;
@@ -318,22 +246,20 @@ ul,ol{padding-left:0;list-style-position:inside}
   text-align:center;
 }
 
-/* === HERO: caixa translúcida só para o texto de data/duração === */
-.hero-meta{ text-align: center; }           /* garante centralizado */
-
+/* === HERO: caixa translúcida só para o texto de acesso/tempo === */
+.hero-meta{ text-align: center; }
 .hero-meta .hero-chip{
-  display: inline-block;                    /* largura ajusta ao conteúdo */
+  display: inline-block;
   margin: .5rem auto 0;
   padding: 10px 16px;
   border-radius: 14px;
-  background: rgba(255,255,255,.10);        /* translúcido */
-  border: 1px solid rgba(255,255,255,.20);  /* leve contorno */
-  backdrop-filter: saturate(130%) blur(2px);/* vidro sutil (onde suportado) */
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.20);
+  backdrop-filter: saturate(130%) blur(2px);
 }
-
 .hero-meta .hero-chip h1{
   margin: 0;
-  font-family: 'Playfair Display', serif;   /* mesma família do título */
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: clamp(1.2rem, 1.0rem + 1.4vw, 1.8rem);
   line-height: 1.2;
@@ -341,59 +267,49 @@ ul,ol{padding-left:0;list-style-position:inside}
   color: #fff;
   text-align: center;
 }
-
-/* mobile: um respiro a mais */
 @media (max-width: 880px){
   .hero-meta .hero-chip{ padding: 10px 14px; }
 }
 
 /* === #recebe: box do tamanho do título (largura) e texto à esquerda === */
-/* O título usa .section-head.narrow com max-width: 860px; vamos casar essa largura. */
 #recebe .card{
-  width: min(100%, 860px);   /* igual à largura máxima do título */
-  margin: 0 auto;            /* centraliza a box sob o título */
-  text-align: left;          /* textos alinhados à esquerda */
-  padding: 18px 22px;        /* mantém o respiro padrão dos cards */
+  width: min(100%, 860px);
+  margin: 0 auto;
+  text-align: left;
+  padding: 18px 22px;
 }
-
-/* Lista com bullets alinhados e legíveis */
 #recebe .card .list{
-  list-style: disc outside;  /* bullets fora, alinhamento clássico */
+  list-style: disc outside;
   margin: 0;
-  padding-left: 1.1rem;      /* recuo só para os bullets */
+  padding-left: 1.1rem;
   text-align: left;
 }
-#recebe .card .list li{
-  margin: .45rem 0;
-}
+#recebe .card .list li{ margin: .45rem 0; }
 
 /* === Seção compacta em verde (mesma identidade do HERO) === */
 .section-hero-compact{
   color:#fff;
-  /* mesmo clima do hero: duas luzes suaves + gradiente principal */
   background:
     radial-gradient(1100px 380px at 12% 0%, rgba(230,192,123,.18), transparent 70%),
     radial-gradient(900px 360px at 100% 12%, rgba(142,30,30,.12), transparent 70%),
     var(--grad-hero);
-  padding: clamp(40px, 6vw, 72px) 0; /* compacto, sem ocupar a tela toda */
+  padding: clamp(40px, 6vw, 72px) 0;
 }
 .section-hero-compact .section-head .h1,
 .section-hero-compact .lead{ color:#fff; }
-
-/* reforço de leitura em telas muito claras */
 .section-hero-compact .section-head.narrow{ text-wrap:balance; }
 
-/* #investimento — lista com “check” e sem bolinha, alinhada à esquerda */
+/* #investimento — lista com “check” (sem bolinha), alinhada à esquerda */
 .offer-list{
-  list-style: none;       /* remove a bolinha padrão */
+  list-style: none;
   margin: .35rem 0 0;
   padding: 0;
 }
 .offer-list li{
   position: relative;
-  padding-left: 1.6em;   /* espaço pro check */
+  padding-left: 1.6em;
   margin: .45rem 0;
-  text-align: left;      /* só a lista fica à esquerda; o card pode continuar central */
+  text-align: left;
 }
 .offer-list li::before{
   content: "✓";
@@ -406,12 +322,10 @@ ul,ol{padding-left:0;list-style-position:inside}
 /* === #recebe com foto — versão harmonizada (foto menor) === */
 .receive-grid{
   display: grid;
-  grid-template-columns: auto 1fr; /* foto usa só o necessário; lista ocupa o resto */
+  grid-template-columns: auto 1fr;
   gap: 24px;
   align-items: start;
 }
-
-/* Moldura elegante da foto, com limite de largura */
 .receive-photo{
   background: #fff;
   border: 1px solid rgba(0,0,0,.06);
@@ -419,27 +333,23 @@ ul,ol{padding-left:0;list-style-position:inside}
   box-shadow: var(--shadow);
   overflow: hidden;
   width: 100%;
-  max-width: 520px;      /* <<< ajuste principal: deixe 480–560px se quiser */
-  margin: 0 auto;        /* centraliza a figura na coluna */
+  max-width: 520px;
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;
+  display: grid;
+  place-items: center;
 }
-
 .receive-photo img{
-  display: block;
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 3 / 2;   /* levemente mais “horizontal” que 4/3 */
+  height: 100%;
+  object-fit: contain;         /* mostra a foto inteira, sem corte */
+  background: #fff;            /* letterbox elegante nas sobras */
   border-bottom: 3px solid rgba(230,192,123,.18);
 }
-
-/* Mobile: empilha e mantém a foto primeiro */
 @media (max-width: 980px){
   .receive-grid{ grid-template-columns: 1fr; }
-  .receive-photo{ order: -1; max-width: min(100%, 520px); }
-  .receive-photo img{ aspect-ratio: 16 / 10; }
+  .receive-photo{ order: -1; max-width: min(100%, 520px); aspect-ratio: 16 / 10; }
 }
-
-/* Em telas bem largas, deixa a foto ainda mais contida se quiser */
 @media (min-width: 1280px){
-  .receive-photo{ max-width: 480px; } /* opcional: 480px para ainda mais equilíbrio */
+  .receive-photo{ max-width: 480px; }
 }
