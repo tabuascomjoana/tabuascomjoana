@@ -89,12 +89,6 @@ img{max-width:100%; display:block}
   padding:6px 10px; border-radius:999px;
 }
 
-/* Countdown */
-.countdown{ display:flex; justify-content:center; gap:10px; margin:.3rem 0 .9rem }
-.countdown div{ background: #F7F3EC; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:8px 10px; min-width:60px }
-.countdown span{ display:block; font-weight:800; font-feature-settings:"tnum"; font-variant-numeric:tabular-nums; font-size:1.1rem; color:#1a1a1a }
-.countdown small{ display:block; font-size:.72rem; color:var(--muted); margin-top:2px; }
-
 /* WhatsApp leve destaque */
 .card-whats .title{ color:#0f6d53 }
 .card-whats .cta{ background:#1ea67b; color:#081c17 }
@@ -128,9 +122,4 @@ body::before{
 a:focus-visible, button:focus-visible{
   outline:3px solid var(--brand);
   outline-offset:3px;
-}
-
-/* Mobile */
-@media (max-width:520px){
-  .countdown div{ min-width:56px; padding:7px 8px }
 }
