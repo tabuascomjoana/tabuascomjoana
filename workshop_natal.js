@@ -47,7 +47,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 // CTA global: direcione para seu checkout / WhatsApp
-const PAY_URL = "https://wa.me/5541995697171";
+const PAY_URL = "https://pay.hotmart.com/U102477582G";
 document.querySelectorAll('a.btn').forEach(a=>{
   const isAnchor = a.getAttribute('href')?.startsWith('#');
   if (!isAnchor) a.setAttribute('href', PAY_URL);
