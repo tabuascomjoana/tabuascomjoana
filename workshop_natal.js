@@ -35,13 +35,12 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', (e)=>{
-    const id = a.getAttribute('href');
-    if(id.length > 1){
-      const el = document.querySelector(id);
-      if(el){
-        e.preventDefault();
-        el.scrollIntoView({behavior:'smooth', block:'start'});
-      }
+    const href = a.getAttribute('href') || '';
+    if (!href.startsWith('#')) return; // se virou Hotmart, não intercepta
+    const el = document.querySelector(href);
+    if (el){
+      e.preventDefault();
+      el.scrollIntoView({behavior:'smooth', block:'start'});
     }
   });
 });
@@ -49,9 +48,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 // CTA global: direcione para seu checkout / WhatsApp
 const PAY_URL = "https://pay.hotmart.com/U102477582G";
 document.querySelectorAll('a.btn').forEach(a=>{
-  const isAnchor = a.getAttribute('href')?.startsWith('#');
-  if (!isAnchor) a.setAttribute('href', PAY_URL);
+  a.setAttribute('href', PAY_URL);     // força todos os botões para a Hotmart
+  // opcional:
+  // a.setAttribute('target', '_blank');
+  // a.setAttribute('rel', 'noopener');
 });
+
 const checkout = document.getElementById('checkout');
 if (checkout){ checkout.setAttribute('href', PAY_URL); }
 
