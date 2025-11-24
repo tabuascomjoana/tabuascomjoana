@@ -89,6 +89,21 @@ img{max-width:100%; display:block}
   padding:6px 10px; border-radius:999px;
 }
 
+/* Consultoria — leve destaque premium */
+.card-consultoria{
+  background:
+    radial-gradient(800px 260px at 0% 0%, rgba(242,184,114,.14), transparent 70%),
+    #fff;
+  border-color: rgba(242,184,114,.4);
+}
+.card-consultoria .title{
+  color: var(--brand-dark);
+}
+.card-consultoria .cta{
+  background: var(--brand);
+  color:#111;
+}
+
 /* WhatsApp leve destaque */
 .card-whats .title{ color:#0f6d53 }
 .card-whats .cta{ background:#1ea67b; color:#081c17 }
