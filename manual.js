@@ -166,7 +166,7 @@ if(offer){
 })();
 
 // === Forçar todos os botões (links com .btn) a irem para a Hotmart ===
-const PAY_URL = "https://pay.hotmart.com/K102026190O";
+const PAY_URL = "https://pay.hotmart.com/D102867439U";
 
 // Atualiza o href de todos os CTAs estilizados como botão
 document.querySelectorAll('a.btn').forEach(a => {
