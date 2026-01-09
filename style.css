@@ -66,29 +66,6 @@ img{max-width:100%; display:block}
 }
 .card:hover .cta{ filter:saturate(110%); box-shadow:0 10px 26px rgba(1,21,38,.18) }
 
-/* Workshop com tema natalino */
-.card-workshop{
-  position:relative;
-  background:
-    var(--xmas-grad),
-    radial-gradient(900px 300px at 100% 0%, rgba(242,184,114,.22), transparent 70%),
-    #fff;
-  border-color: rgba(154,43,43,.2);
-}
-.card-workshop .title{ color: var(--xmas-red); }
-.card-workshop .desc{ color:#2a2a2a }
-.ribbon{
-  position:absolute; top:12px; right:-42px; transform:rotate(35deg);
-  background: linear-gradient(90deg, var(--xmas-green), #144338);
-  color:#fff; padding:6px 48px; font-weight:700; letter-spacing:.5px; box-shadow:var(--shadow);
-  pointer-events:none;
-}
-.badge-limited{
-  display:inline-block; margin:.2rem 0 .5rem; font-weight:700; font-size:.82rem;
-  color:#2b1e14; background:var(--grad-badge); color:#FDF7EC;
-  padding:6px 10px; border-radius:999px;
-}
-
 /* Consultoria — leve destaque premium */
 .card-consultoria{
   background:
